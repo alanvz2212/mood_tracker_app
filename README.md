@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📊 Mood Tracker App
 
 A simple **Flutter** app to track daily moods with **Firebase Authentication** and **Cloud Firestore**.
@@ -45,3 +46,6 @@ lib/
 ├── screens/        # App screens
 ├── services/       # Insights logic
 └── utils/  
+=======
+# mood_tracker_app
+>>>>>>> d79545c8a89b65a20c709cadb7c0e5b0b54bcbdc
