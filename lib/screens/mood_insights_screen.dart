@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../services/insights_service.dart';
 
 class MoodInsightsScreen extends StatelessWidget {
+  const MoodInsightsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;

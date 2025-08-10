@@ -5,7 +5,10 @@ import 'package:intl/intl.dart';
 import '../utils/mood_colors.dart';
 
 class MoodLogScreen extends StatefulWidget {
+  const MoodLogScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _MoodLogScreenState createState() => _MoodLogScreenState();
 }
 
@@ -40,6 +43,7 @@ class _MoodLogScreenState extends State<MoodLogScreen> {
           });
 
       ScaffoldMessenger.of(
+        // ignore: use_build_context_synchronously
         context,
       ).showSnackBar(SnackBar(content: Text('Mood saved successfully!')));
 
@@ -47,6 +51,7 @@ class _MoodLogScreenState extends State<MoodLogScreen> {
       setState(() => _selectedMood = null);
     } catch (e) {
       ScaffoldMessenger.of(
+        // ignore: use_build_context_synchronously
         context,
       ).showSnackBar(SnackBar(content: Text('Error saving mood: $e')));
     }
@@ -75,6 +80,7 @@ class _MoodLogScreenState extends State<MoodLogScreen> {
                 onSelected: (selected) {
                   setState(() => _selectedMood = selected ? mood : null);
                 },
+                // ignore: deprecated_member_use
                 selectedColor: MoodColors.moodColors[mood]!.withOpacity(0.3),
                 backgroundColor: Colors.grey[200],
               );
@@ -95,10 +101,10 @@ class _MoodLogScreenState extends State<MoodLogScreen> {
               ? Center(child: CircularProgressIndicator())
               : ElevatedButton(
                   onPressed: _saveMood,
-                  child: Text('Save Mood'),
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 50),
                   ),
+                  child: Text('Save Mood'),
                 ),
         ],
       ),

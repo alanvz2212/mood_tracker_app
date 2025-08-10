@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../utils/mood_colors.dart';
 
 class MoodHistoryScreen extends StatelessWidget {
+  const MoodHistoryScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
@@ -100,6 +102,7 @@ class MoodHistoryScreen extends StatelessWidget {
                   .collection('moods')
                   .doc(docId)
                   .update({'note': controller.text.trim()});
+              // ignore: use_build_context_synchronously
               Navigator.pop(context);
             },
             child: Text('Save'),
