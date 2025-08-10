@@ -49,6 +49,11 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Image.asset(
+            //   'assets/images/mood_logo.webp',
+            //   width: 100,
+            //   height: 100,
+            // ),
             Text(
               _isLogin ? 'Login' : 'Sign Up',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
