@@ -48,16 +48,16 @@ class MoodHistoryScreen extends StatelessWidget {
                   backgroundColor: MoodColors.moodColors[mood],
                   child: Text(
                     mood[0],
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 title: Text(mood),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(date),
-                    if (note.isNotEmpty) Text(note),
-                  ],
+                  children: [Text(date), if (note.isNotEmpty) Text(note)],
                 ),
                 trailing: IconButton(
                   icon: Icon(Icons.edit),
@@ -73,7 +73,7 @@ class MoodHistoryScreen extends StatelessWidget {
 
   void _editNote(BuildContext context, String docId, String currentNote) {
     final controller = TextEditingController(text: currentNote);
-    
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

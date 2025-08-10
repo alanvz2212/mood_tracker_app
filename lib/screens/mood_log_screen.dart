@@ -16,9 +16,9 @@ class _MoodLogScreenState extends State<MoodLogScreen> {
 
   Future<void> _saveMood() async {
     if (_selectedMood == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please select a mood')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Please select a mood')));
       return;
     }
 
@@ -27,28 +27,28 @@ class _MoodLogScreenState extends State<MoodLogScreen> {
     try {
       final user = FirebaseAuth.instance.currentUser!;
       final today = DateFormat('yyyy-MM-dd').format(DateTime.now());
-      
+
       await FirebaseFirestore.instance
           .collection('users')
           .doc(user.uid)
           .collection('moods')
           .doc(today)
           .set({
-        'mood': _selectedMood,
-        'note': _noteController.text.trim(),
-        'timestamp': FieldValue.serverTimestamp(),
-      });
+            'mood': _selectedMood,
+            'note': _noteController.text.trim(),
+            'timestamp': FieldValue.serverTimestamp(),
+          });
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Mood saved successfully!')),
-      );
-      
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Mood saved successfully!')));
+
       _noteController.clear();
       setState(() => _selectedMood = null);
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error saving mood: $e')),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Error saving mood: $e')));
     }
 
     setState(() => _isLoading = false);

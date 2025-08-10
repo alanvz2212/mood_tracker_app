@@ -31,7 +31,9 @@ class MoodInsightsScreen extends StatelessWidget {
         }
 
         final moods = snapshot.data!.docs
-            .map((doc) => (doc.data() as Map<String, dynamic>)['mood'] as String)
+            .map(
+              (doc) => (doc.data() as Map<String, dynamic>)['mood'] as String,
+            )
             .toList();
 
         final insights = InsightsService.calculateInsights(moods);
@@ -73,7 +75,12 @@ class MoodInsightsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInsightCard(String title, String value, IconData icon, Color color) {
+  Widget _buildInsightCard(
+    String title,
+    String value,
+    IconData icon,
+    Color color,
+  ) {
     return Card(
       child: Padding(
         padding: EdgeInsets.all(16),

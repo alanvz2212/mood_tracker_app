@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
-  
+
   final List<Widget> _screens = [
     MoodLogScreen(),
     MoodHistoryScreen(),
@@ -40,10 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.add_circle),
             label: 'Log Mood',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
           BottomNavigationBarItem(
             icon: Icon(Icons.analytics),
             label: 'Insights',

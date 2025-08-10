@@ -14,7 +14,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _authenticate() async {
     setState(() => _isLoading = true);
-    
+
     try {
       if (_isLogin) {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -28,21 +28,18 @@ class _LoginScreenState extends State<LoginScreen> {
         );
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.toString())),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.toString())));
     }
-    
+
     setState(() => _isLoading = false);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Mood Tracker'),
-        backgroundColor: Colors.blue,
-      ),
+      appBar: AppBar(title: Text('Mood Tracker'), backgroundColor: Colors.blue),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
@@ -82,9 +79,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
             TextButton(
               onPressed: () => setState(() => _isLogin = !_isLogin),
-              child: Text(_isLogin
-                  ? 'Don\'t have an account? Sign up'
-                  : 'Already have an account? Login'),
+              child: Text(
+                _isLogin
+                    ? 'Don\'t have an account? Sign up'
+                    : 'Already have an account? Login',
+              ),
             ),
           ],
         ),
